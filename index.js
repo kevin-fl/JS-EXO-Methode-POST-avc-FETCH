@@ -1,6 +1,6 @@
 //   Methode POST --> dans une requete HTTP --> avec fetch()
 
-// créer d un objet js pour l utilisateur
+// créer d un objet js pour l utilisateur , on va envoyer un new user dans le serveur
 
 const newUser = {
     name: "kevin",
@@ -9,7 +9,7 @@ const newUser = {
 };
 
 const promise = fetch("https://jsonplaceholder.typicode.com/users", {
-method: "POST",                                                                                     //-> methode POST envoi les infos au serveur , la const new user
+method: "POST",                                                                                     //-> methode POST pr envoyer les infos , les modif au serveur , la const new user
 body: JSON.stringify(newUser),                                                                      //=> permet a l objet de la const new user d etre sous forme string 
 headers: {
     "content-Type": "application/json",
@@ -27,3 +27,18 @@ console.log(renvoiPostDansJson);                                                
 console.log(e);
 }
 })
+
+
+
+// Methode GET pour recevoir les infos du serveur avec notre nvlle element envoyer via la methode post juste avant 
+
+const chercheUsersPromise = fetch("https://jsonplaceholder.typicode.com/users");
+chercheUsersPromise.then(async (response) => {
+try{
+    console.log(response);
+ const nousRenvoiGet =  await response.json()
+ console.log(nousRenvoiGet);
+}catch (e) {
+    console.log(e);
+}
+});
