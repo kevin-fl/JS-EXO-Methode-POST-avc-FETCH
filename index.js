@@ -10,7 +10,7 @@ const newUser = {
 
 const promise = fetch("https://jsonplaceholder.typicode.com/users", {
 method: "POST",                                                                                     //-> methode POST pr envoyer les infos , les modif au serveur , la const new user
-body: JSON.stringify(newUser),                                                                      //=> permet a l objet de la const new user d etre sous forme string 
+body: JSON.stringify(newUser),              // transforme en fichier Json                                                                //=> permet a l objet de la const new user d etre sous forme string 
 headers: {
     "content-Type": "application/json",
 },
